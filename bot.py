@@ -20,7 +20,7 @@ client = commands.Bot(command_prefix=';;;', intents=intents)
 client.remove_command("help")
 now = datetime.datetime.now()
 
-token = "Nzk3MzM5MjM5NDg5NzMyNjQ4.X_lCCA.q0YbS2AVLCvtxICfdsv2pvk1oLM"
+token = "Nzk3MzM5MjM5NDg5NzMyNjQ4.X_lCCA.GHshSJ7F7UzH_U7AJdfXqcm5Uz8"
 
 dob_money = 0
 
