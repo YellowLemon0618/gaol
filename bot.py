@@ -6,6 +6,7 @@ import time
 import math
 import datetime
 import string
+import os
 from skingrabber import skingrabber
 sg = skingrabber()
 
@@ -19,8 +20,6 @@ intents.presences = True
 client = commands.Bot(command_prefix=';;;', intents=intents)
 client.remove_command("help")
 now = datetime.datetime.now()
-
-token = "Nzk3MzM5MjM5NDg5NzMyNjQ4.X_lCCA.GHshSJ7F7UzH_U7AJdfXqcm5Uz8"
 
 dob_money = 0
 
@@ -566,4 +565,4 @@ async def on_command_error(ctx, error):
         await ctx.channel.send("그런 명령어는 없습니다!")
         await ctx.channel.send("**';;;도움'** 을 입력해 보세요!")
 
-client.run(token)
+client.run(os.environ['token'])
