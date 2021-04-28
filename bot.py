@@ -37,7 +37,7 @@ async def on_ready():
                 await asyncio.sleep(10)
     await presense_change_def(["Partnered with ByteBrew", "https://bytebrew.io/?disccid=hkdev#Pre_Register_Section"])
     dob_money = 1000
-    #"\';;;µµ¿ò\'À» ÀÔ·ÂÇØº¸¼¼¿ä", "Å×½ºÆ®¹öÁ¯ ½ÇÇàÁß", "Powered by Lemon", 
+    #"\';;;ë„ì›€\'ì„ ì…ë ¥í•´ë³´ì„¸ìš”", "í…ŒìŠ¤íŠ¸ë²„ì ¼ ì‹¤í–‰ì¤‘", "Powered by Lemon", 
 
 def isjoined(au, message):
     aid = '{0.author.id}'.format(message)
@@ -77,49 +77,49 @@ def convert(num, base) :
 @client.command()
 async def help(ctx):
     color = random.randint(0, 0xfffffe)
-    hem=discord.Embed(title="µµ¿òÀÌ ÇÊ¿ä ÇÏ½Å°¡¿ä?", description="", color=color)
-    hem.set_footer(icon_url = ctx.author.avatar_url, text = "{}".format(ctx.author) + " ? " + str(now.month) + "¿ù " + str(now.day) + "ÀÏ | " + str(now.hour) + ":" + str(now.minute) + ":" + str(now.second))
+    hem=discord.Embed(title="ë„ì›€ì´ í•„ìš” í•˜ì‹ ê°€ìš”?", description="", color=color)
+    hem.set_footer(icon_url = ctx.author.avatar_url, text = "{}".format(ctx.author) + " ? " + str(now.month) + "ì›” " + str(now.day) + "ì¼ | " + str(now.hour) + ":" + str(now.minute) + ":" + str(now.second))
     await ctx.send(embed=hem)
 
 @client.command()
-async def µµ¿ò(ctx):
+async def ë„ì›€(ctx):
     await help(ctx)
 
 @client.command()
 async def ping(ctx):
     color = random.randint(0, 0xfffffe)
     embed=discord.Embed(title="pong!", description=f'{round(round(client.latency, 4)*1000)}ms', color=color)
-    embed.set_footer(icon_url = ctx.author.avatar_url, text = "{}".format(ctx.author) + " ? " + str(now.month) + "¿ù " + str(now.day) + "ÀÏ | " + str(now.hour) + ":" + str(now.minute) + ":" + str(now.second))
+    embed.set_footer(icon_url = ctx.author.avatar_url, text = "{}".format(ctx.author) + " ? " + str(now.month) + "ì›” " + str(now.day) + "ì¼ | " + str(now.hour) + ":" + str(now.minute) + ":" + str(now.second))
     embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/759299677274505219/828843117502267412/ping-pong.jpg")
     await ctx.send(embed=embed)
 
 @client.command()
-async def ÇÎ(ctx):
+async def í•‘(ctx):
     await ping(ctx)
 
 @client.command()
 async def join(ctx):
     join = isjoined('{message.author}', ctx)
     if join is False:
-        await ctx.send("°¡ÀÔ½Ã Á¤º¸ ¼öÁı¿¡ µ¿ÀÇÇÏ½Ã´Â°É·Î °£ÁÖµË´Ï´Ù. \nµ¿ÀÇÇÏ½Å´Ù¸é 15ÃÊ ³»·Î 'µ¿ÀÇ' ¶ó°í ÀÔ·ÂÇØ ÁÖ¼¼¿ä.")
+        await ctx.send("ê°€ì…ì‹œ ì •ë³´ ìˆ˜ì§‘ì— ë™ì˜í•˜ì‹œëŠ”ê±¸ë¡œ ê°„ì£¼ë©ë‹ˆë‹¤. \në™ì˜í•˜ì‹ ë‹¤ë©´ 15ì´ˆ ë‚´ë¡œ 'ë™ì˜' ë¼ê³  ì…ë ¥í•´ ì£¼ì„¸ìš”.")
         def check(m):
-            return m.author == ctx.author and m.content=="µ¿ÀÇ"
+            return m.author == ctx.author and m.content=="ë™ì˜"
 
         msg = await client.wait_for(event='message', timeout=15.0, check=check)
  
         if msg is None:
-            await ctx.send("°¡ÀÔ¿¡ ½ÇÆĞÇß½À´Ï´Ù. \n ´Ù½Ã½Ãµµ : \';;;°¡ÀÔ\'")
+            await ctx.send("ê°€ì…ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤. \n ë‹¤ì‹œì‹œë„ : \';;;ê°€ì…\'")
             return
         else:
-            await ctx.send("°¡ÀÔ¿¡ ¼º°øÇß½À´Ï´Ù.")
+            await ctx.send("ê°€ì…ì— ì„±ê³µí–ˆìŠµë‹ˆë‹¤.")
             f = open("C:/Users/Kyu Wan KIM/Desktop/Visual Studio/projects/Python/HK Money System/money.txt", "a")
             f.write('{0.author.id}'.format(ctx) + ":100\n")
             f.close()
     else:
-        await ctx.send("ÀÌ¹Ì °¡ÀÔµÇ¾î ÀÖ½À´Ï´Ù!")
+        await ctx.send("ì´ë¯¸ ê°€ì…ë˜ì–´ ìˆìŠµë‹ˆë‹¤!")
 
 @client.command()
-async def °¡ÀÔ(ctx):
+async def ê°€ì…(ctx):
     await join(ctx)
 
 @client.command()
@@ -127,12 +127,12 @@ async def money(ctx):
     color = random.randint(0, 0xfffffe)
     join = isjoined('{ctx.author}', ctx)
     if join is False:
-        await ctx.send("¸ÕÀú \';;;°¡ÀÔ\'À» ÀÔ·ÂÇØ ÁÖ¼¼¿ä!")
+        await ctx.send("ë¨¼ì € \';;;ê°€ì…\'ì„ ì…ë ¥í•´ ì£¼ì„¸ìš”!")
     else:
-        await ctx.send(embed=discord.Embed(title=":moneybag: µ· :moneybag:" ,description=f"\n ÇöÀç {ctx.author.name}´ÔÀÇ ÀÜ°í´Â " + join + "¿øÀÔ´Ï´Ù!", color=color))
+        await ctx.send(embed=discord.Embed(title=":moneybag: ëˆ :moneybag:" ,description=f"\n í˜„ì¬ {ctx.author.name}ë‹˜ì˜ ì”ê³ ëŠ” " + join + "ì›ì…ë‹ˆë‹¤!", color=color))
 
 @client.command()
-async def µ·(ctx):
+async def ëˆ(ctx):
     await money(ctx)
 
 @client.command()
@@ -140,11 +140,11 @@ async def send(ctx, arg1=None):
     try:
         join = isjoined('{message.author}', ctx)
         if join is False:
-            await ctx.send("¸ÕÀú \';;;°¡ÀÔ\'À» ÀÔ·ÂÇØ ÁÖ¼¼¿ä!")
+            await ctx.send("ë¨¼ì € \';;;ê°€ì…\'ì„ ì…ë ¥í•´ ì£¼ì„¸ìš”!")
         else:
             m = int(join)
             if arg1 == None:
-                await ctx.send(embed=discord.Embed(title="¾ó¸¶³ª ÇÏ½Ç°Ç°¡¿ä??", description="\n\t\';;;µµ¿ò\' À» ÀÔ·ÂÇØ º¸¼¼¿ä!", color=0xFF0000))
+                await ctx.send(embed=discord.Embed(title="ì–¼ë§ˆë‚˜ í•˜ì‹¤ê±´ê°€ìš”??", description="\n\t\';;;ë„ì›€\' ì„ ì…ë ¥í•´ ë³´ì„¸ìš”!", color=0xFF0000))
             else:
                 if arg1.isdigit():
                     rm = int(join)
@@ -152,56 +152,56 @@ async def send(ctx, arg1=None):
                     chpm = rm - 100
                     if pm <= chpm:
                         if pm == 0:
-                            await ctx.send(embed=discord.Embed(title="¾Æ´Ï 0À» ´õÇÏ´Â°Ô ¹º ¼Ò¿ëÀÌ ÀÖ¾î¿ä;;", description="\n\t0 ÀÌ»óÀÇ ¼ö·Î ÀÔ·ÂÇØ ÁÖ¼¼¿ä!", color=0xFF0000))
+                            await ctx.send(embed=discord.Embed(title="ì•„ë‹ˆ 0ì„ ë”í•˜ëŠ”ê²Œ ë­” ì†Œìš©ì´ ìˆì–´ìš”;;", description="\n\t0 ì´ìƒì˜ ìˆ˜ë¡œ ì…ë ¥í•´ ì£¼ì„¸ìš”!", color=0xFF0000))
                         else:
                             await ctx.send("~~ACCESS SUCCESSED~~ \n\nrm : " + str(rm) + "\tpm : " + str(pm) + "\tchpm : " + str(chpm))
                     else:
-                        await ctx.send(embed=discord.Embed(title="¼Û±İÇÒ ±İ¾×ÀÌ ³Ê¹« Ä¿¿ä!", description="\n\t\';;;µµ¿ò\' À» ÀÔ·ÂÇØ º¸¼¼¿ä!", color=0xFF0000))
+                        await ctx.send(embed=discord.Embed(title="ì†¡ê¸ˆí•  ê¸ˆì•¡ì´ ë„ˆë¬´ ì»¤ìš”!", description="\n\t\';;;ë„ì›€\' ì„ ì…ë ¥í•´ ë³´ì„¸ìš”!", color=0xFF0000))
                 else:
-                    await ctx.send(embed=discord.Embed(title="¼Û±İÇÒ ±İ¾×Àº ¼ıÀÚ¿©¾ß ÇØ¿ä!", color=0xFF0000))
+                    await ctx.send(embed=discord.Embed(title="ì†¡ê¸ˆí•  ê¸ˆì•¡ì€ ìˆ«ìì—¬ì•¼ í•´ìš”!", color=0xFF0000))
     except Exception as error:
-        await ctx.send(":warning: À¸¾Ç! ¿¡·¯´Ù!")
+        await ctx.send(":warning: ìœ¼ì•…! ì—ëŸ¬ë‹¤!")
         await ctx.send(":warning: " + error)
 
 @client.command()
-async def ¼Û±İ(ctx, arg1=None):
+async def ì†¡ê¸ˆ(ctx, arg1=None):
     await send(ctx, arg1)
 
 @client.command()
-async def µµ¹Ú(ctx, arg1=None):
+async def ë„ë°•(ctx, arg1=None):
     try:
         join = isjoined('{ctx.author}', ctx)
         if join is False:
-            await ctx.send("¸ÕÀú \';;;°¡ÀÔ\'À» ÀÔ·ÂÇØ ÁÖ¼¼¿ä!")
+            await ctx.send("ë¨¼ì € \';;;ê°€ì…\'ì„ ì…ë ¥í•´ ì£¼ì„¸ìš”!")
         else:
             global dob_money
             if arg1 == None:
-                await ctx.send("\';;;µµ¹Ú µµ¿ò\' À» ÀÔ·ÂÇØ º¸¼¼¿ä!")
-            elif arg1 == "help" or arg1 == "µµ¿ò":
-                await ctx.send(embed=discord.Embed(title="\';;;µµ¹Ú\' »ç¿ë¹ı", description="\n ;;;µµ¹Ú <¾×¼ö>", color=0xFFFFFE))
+                await ctx.send("\';;;ë„ë°• ë„ì›€\' ì„ ì…ë ¥í•´ ë³´ì„¸ìš”!")
+            elif arg1 == "help" or arg1 == "ë„ì›€":
+                await ctx.send(embed=discord.Embed(title="\';;;ë„ë°•\' ì‚¬ìš©ë²•", description="\n ;;;ë„ë°• <ì•¡ìˆ˜>", color=0xFFFFFE))
             elif arg1.isdigit():
                 await ctx.send("isDigit")
             else:
-                await ctx.send(embed=discord.Embed(title="¿¡? ¹¹¶ó±¸¿ä?", color=0xFF0000))
+                await ctx.send(embed=discord.Embed(title="ì—? ë­ë¼êµ¬ìš”?", color=0xFF0000))
     except Exception as error:
-        await ctx.send(":warning: À¸¾Ç! ¿¡·¯´Ù!")
+        await ctx.send(":warning: ìœ¼ì•…! ì—ëŸ¬ë‹¤!")
         await ctx.send(":warning: " + error)
 
 @client.command(name="random")
 async def _random(ctx, arg1=None):
     try:
         if arg1 == None:
-            await ctx.send("1ºÎÅÍ ¸î±îÁö ÇÏ½Ç°ÇÁö Á¤ÇØÁÖ¼¼¿ä!")
+            await ctx.send("1ë¶€í„° ëª‡ê¹Œì§€ í•˜ì‹¤ê±´ì§€ ì •í•´ì£¼ì„¸ìš”!")
         elif arg1.isdigit(): #true
             if int(arg1) <= 1:
-                await ctx.send("¼ıÀÚ´Â 1ÀÌ°Å³ª 1º¸´Ù ÀÛÀ»¼ö ¾ø¾î¿ä!")
+                await ctx.send("ìˆ«ìëŠ” 1ì´ê±°ë‚˜ 1ë³´ë‹¤ ì‘ì„ìˆ˜ ì—†ì–´ìš”!")
             else:
                 r = random.randint(1, int(arg1))
-                await ctx.send("ÁÖ»çÀ§ °á°ú´Â.... \n\n" + str(r) + "!!")
+                await ctx.send("ì£¼ì‚¬ìœ„ ê²°ê³¼ëŠ”.... \n\n" + str(r) + "!!")
         else:
-            await ctx.send("¼ö´Â ¹®ÀÚ¿­ÀÌ³ª ½Ç¼ö µîÀÌ ¾Æ´Ñ ÀÚ¿¬¼öÀÌ¿©¾ß ÇØ¿ä!")
+            await ctx.send("ìˆ˜ëŠ” ë¬¸ìì—´ì´ë‚˜ ì‹¤ìˆ˜ ë“±ì´ ì•„ë‹Œ ìì—°ìˆ˜ì´ì—¬ì•¼ í•´ìš”!")
     except Exception as error:
-        await ctx.send(":warning: À¸¾Ç! ¿¡·¯´Ù!")
+        await ctx.send(":warning: ìœ¼ì•…! ì—ëŸ¬ë‹¤!")
         await ctx.send(":warning: " + error)
 
 @client.command()
@@ -209,11 +209,11 @@ async def dice(ctx, arg1=None):
     await _random(ctx, arg1)
 
 @client.command()
-async def ·£´ı(ctx, arg1=None):
+async def ëœë¤(ctx, arg1=None):
     await _random(ctx, arg1)
 
 @client.command()
-async def ÁÖ»çÀ§(ctx, arg1=None):
+async def ì£¼ì‚¬ìœ„(ctx, arg1=None):
     await _random(ctx, arg1)
     
 @client.command()
@@ -223,11 +223,11 @@ async def calculate(ctx, arg1=None, arg2=None, arg3=None, arg4=None):
             if arg2 == '!' or arg2.lower() == 'f':
                 if arg1.isdigit(): # true
                     color = random.randint(0, 0xfffffe)
-                    await ctx.send(embed=discord.Embed(title="°è»ê °á°ú", description="°è»ê ½Ä : " + str(arg1) + str(arg2) + "\n°è»ê °á°ú : " + str(math.factorial(int(arg1))), color=color))
+                    await ctx.send(embed=discord.Embed(title="ê³„ì‚° ê²°ê³¼", description="ê³„ì‚° ì‹ : " + str(arg1) + str(arg2) + "\nê³„ì‚° ê²°ê³¼ : " + str(math.factorial(int(arg1))), color=color))
                 else:
-                    await ctx.send("ÆÑÅä¸®¾ó(factorial)¿¡´Â ¹®ÀÚ¿­, ½Ç¼ö, À½¼ö µîÀÌ µé¾î°¥¼ö ¾ø¾î¿ä!")
+                    await ctx.send("íŒ©í† ë¦¬ì–¼(factorial)ì—ëŠ” ë¬¸ìì—´, ì‹¤ìˆ˜, ìŒìˆ˜ ë“±ì´ ë“¤ì–´ê°ˆìˆ˜ ì—†ì–´ìš”!")
             else:
-                await ctx.send("°è»ê½ÄÀ» ÀÔ·ÂÇØ ÁÖ¼¼¿ä!")
+                await ctx.send("ê³„ì‚°ì‹ì„ ì…ë ¥í•´ ì£¼ì„¸ìš”!")
         elif is_digit(arg1): # true
             if is_digit(arg3): # true
                 color = random.randint(0, 0xfffffe)
@@ -246,33 +246,33 @@ async def calculate(ctx, arg1=None, arg2=None, arg3=None, arg4=None):
                     if arg4.isdigit():
                         r = int(arg4)
                     else:
-                        await ctx.send("¼Ò¼öÁ¡ ÀÚ¸®¼ö´Â ¹®ÀÚ¿­, ½Ç¼ö µîÀÏ ¼ö ¾ø¾î¿ä!")
+                        await ctx.send("ì†Œìˆ˜ì  ìë¦¬ìˆ˜ëŠ” ë¬¸ìì—´, ì‹¤ìˆ˜ ë“±ì¼ ìˆ˜ ì—†ì–´ìš”!")
                 else:
                     r = 3
                 if arg2 == '+':
                     result = round((n1 + n2), r)
-                    await ctx.send(embed=discord.Embed(title="°è»ê °á°ú", description="°è»ê ½Ä : " + arg1 + " " + arg2 + " " + arg3 + "\n°è»ê °á°ú : " + str(result), color=color))
+                    await ctx.send(embed=discord.Embed(title="ê³„ì‚° ê²°ê³¼", description="ê³„ì‚° ì‹ : " + arg1 + " " + arg2 + " " + arg3 + "\nê³„ì‚° ê²°ê³¼ : " + str(result), color=color))
                 elif arg2 == '-':
                     result = round((n1 - n2), r)
-                    await ctx.send(embed=discord.Embed(title="°è»ê °á°ú", description="°è»ê ½Ä : " + arg1 + " " + arg2 + " " + arg3 + "\n°è»ê °á°ú : " + str(result), color=color))
+                    await ctx.send(embed=discord.Embed(title="ê³„ì‚° ê²°ê³¼", description="ê³„ì‚° ì‹ : " + arg1 + " " + arg2 + " " + arg3 + "\nê³„ì‚° ê²°ê³¼ : " + str(result), color=color))
                 elif arg2 == '*' or arg2 == 'x' or arg2 == 'X':
                     result = round((n1 * n2), r)
-                    await ctx.send(embed=discord.Embed(title="°è»ê °á°ú", description="°è»ê ½Ä : " + arg1 + " " + "X" + " " + arg3 + "\n°è»ê °á°ú : " + str(result), color=color))
+                    await ctx.send(embed=discord.Embed(title="ê³„ì‚° ê²°ê³¼", description="ê³„ì‚° ì‹ : " + arg1 + " " + "X" + " " + arg3 + "\nê³„ì‚° ê²°ê³¼ : " + str(result), color=color))
                 elif arg2 == '/':
                     if arg1 == '0' or arg3 == '0':
-                        await ctx.send("0Àº 0¿øÈ÷ 0À¸·Î ³ª´­¼ö ¾ø¾î0~~ ¾Ë°Ú¾î0?")
+                        await ctx.send("0ì€ 0ì›íˆ 0ìœ¼ë¡œ ë‚˜ëˆŒìˆ˜ ì—†ì–´0~~ ì•Œê² ì–´0?")
                     else:
                         result = round((n1 / n2), r)
-                        await ctx.send(embed=discord.Embed(title="°è»ê °á°ú", description="°è»ê ½Ä : " + arg1 + " " + arg2 + " " + arg3 + "\n°è»ê °á°ú : " + str(result), color=color))
+                        await ctx.send(embed=discord.Embed(title="ê³„ì‚° ê²°ê³¼", description="ê³„ì‚° ì‹ : " + arg1 + " " + arg2 + " " + arg3 + "\nê³„ì‚° ê²°ê³¼ : " + str(result), color=color))
                 elif arg2 == '^':
                     if str(type(n1)) == "<class 'int'>" and str(type(n2)) == "<class 'int'>":
                         if n1 != 0 and n2 != 0:
                             result = round(pow(n1, n2), r)
-                            await ctx.send(embed=discord.Embed(title="°è»ê °á°ú", description="°è»ê ½Ä : " + arg1 + " " + arg2 + " " + arg3 + "\n°è»ê °á°ú : " + str(result), color=color))
+                            await ctx.send(embed=discord.Embed(title="ê³„ì‚° ê²°ê³¼", description="ê³„ì‚° ì‹ : " + arg1 + " " + arg2 + " " + arg3 + "\nê³„ì‚° ê²°ê³¼ : " + str(result), color=color))
                         else:
-                            await ctx.send(embed=discord.Embed(title="°è»ê °á°ú", description="°è»ê ½Ä : " + arg1 + " " + arg2 + " " + arg3 + "\n°è»ê °á°ú : 1", color=color))
+                            await ctx.send(embed=discord.Embed(title="ê³„ì‚° ê²°ê³¼", description="ê³„ì‚° ì‹ : " + arg1 + " " + arg2 + " " + arg3 + "\nê³„ì‚° ê²°ê³¼ : 1", color=color))
                     else:
-                        await ctx.send("Á¦°ö¿¡´Â ¼Ò¼öÁ¡ µîÀÌ µé¾î°¥ ¼ö ¾ø¾î¿ä!")
+                        await ctx.send("ì œê³±ì—ëŠ” ì†Œìˆ˜ì  ë“±ì´ ë“¤ì–´ê°ˆ ìˆ˜ ì—†ì–´ìš”!")
                 elif arg2.lower() == 't' or arg2.lower() == 'tetr':
                     if str(type(n1)) == "<class 'int'>" and str(type(n2)) == "<class 'int'>":
                         if n1 != 0 and n2 != 0:
@@ -281,23 +281,23 @@ async def calculate(ctx, arg1=None, arg2=None, arg3=None, arg4=None):
                             for i in range(0, n1):
                                 temp = m ** n2
                                 m = temp
-                            await ctx.send(embed=discord.Embed(title="°è»ê °á°ú", description="°è»ê ½Ä : " + arg1 + " " + "TETR" + " " + arg3 + "\n°è»ê °á°ú : " + str(temp), color=color))
+                            await ctx.send(embed=discord.Embed(title="ê³„ì‚° ê²°ê³¼", description="ê³„ì‚° ì‹ : " + arg1 + " " + "TETR" + " " + arg3 + "\nê³„ì‚° ê²°ê³¼ : " + str(temp), color=color))
                         else:
-                            await ctx.send(embed=discord.Embed(title="°è»ê °á°ú", description="°è»ê ½Ä : " + arg1 + " " + "TETR" + " " + arg3 + "\n°è»ê °á°ú : 1", color=color))
+                            await ctx.send(embed=discord.Embed(title="ê³„ì‚° ê²°ê³¼", description="ê³„ì‚° ì‹ : " + arg1 + " " + "TETR" + " " + arg3 + "\nê³„ì‚° ê²°ê³¼ : 1", color=color))
                     else:
-                        await ctx.send("Å×Æ®·¹ÀÌ¼Ç(tetration)¿¡´Â ¼Ò¼öÁ¡ µîÀÌ µé¾î°¥ ¼ö ¾ø¾î¿ä!")
+                        await ctx.send("í…ŒíŠ¸ë ˆì´ì…˜(tetration)ì—ëŠ” ì†Œìˆ˜ì  ë“±ì´ ë“¤ì–´ê°ˆ ìˆ˜ ì—†ì–´ìš”!")
                 elif arg2 == '!' or arg2.lower() == 'f':
                     if arg1.isdigit(): # true
                         color = random.randint(0, 0xfffffe)
-                        await ctx.send(embed=discord.Embed(title="°è»ê °á°ú", description="°è»ê ½Ä : " + arg1 + arg2 + "\n°è»ê °á°ú : " + str(math.factorial(int(arg1))), color=color))
+                        await ctx.send(embed=discord.Embed(title="ê³„ì‚° ê²°ê³¼", description="ê³„ì‚° ì‹ : " + arg1 + arg2 + "\nê³„ì‚° ê²°ê³¼ : " + str(math.factorial(int(arg1))), color=color))
                     else:
-                        await ctx.send("ÆÑÅä¸®¾ó(factorial)¿¡´Â ¹®ÀÚ¿­, ½Ç¼ö, À½¼ö µîÀÌ µé¾î°¥¼ö ¾ø¾î¿ä!")  
+                        await ctx.send("íŒ©í† ë¦¬ì–¼(factorial)ì—ëŠ” ë¬¸ìì—´, ì‹¤ìˆ˜, ìŒìˆ˜ ë“±ì´ ë“¤ì–´ê°ˆìˆ˜ ì—†ì–´ìš”!")  
             else:
-                await ctx.send("¼ö´Â ¹®ÀÚ¿­ÀÌ³ª ½Ç¼ö µîÀÌ ¾Æ´Ñ ÀÚ¿¬¼öÀÌ¿©¾ß ÇØ¿ä!")       
+                await ctx.send("ìˆ˜ëŠ” ë¬¸ìì—´ì´ë‚˜ ì‹¤ìˆ˜ ë“±ì´ ì•„ë‹Œ ìì—°ìˆ˜ì´ì—¬ì•¼ í•´ìš”!")       
         else:
-            await ctx.send("¼ö´Â ¹®ÀÚ¿­ÀÌ³ª ½Ç¼ö µîÀÌ ¾Æ´Ñ ÀÚ¿¬¼öÀÌ¿©¾ß ÇØ¿ä!")
+            await ctx.send("ìˆ˜ëŠ” ë¬¸ìì—´ì´ë‚˜ ì‹¤ìˆ˜ ë“±ì´ ì•„ë‹Œ ìì—°ìˆ˜ì´ì—¬ì•¼ í•´ìš”!")
     except Exception as error:
-        await ctx.send(":warning: À¸¾Ç! ¿¡·¯´Ù!")
+        await ctx.send(":warning: ìœ¼ì•…! ì—ëŸ¬ë‹¤!")
         await ctx.send(":warning: " + error)
 
 @client.command()
@@ -305,7 +305,7 @@ async def cal(ctx, arg1=None, arg2=None, arg3=None, arg4=None):
     await calculate(ctx, arg1, arg2, arg3, arg4)
 
 @client.command()
-async def °è»ê(ctx, arg1=None, arg2=None, arg3=None, arg4=None):
+async def ê³„ì‚°(ctx, arg1=None, arg2=None, arg3=None, arg4=None):
     await calculate(ctx, arg1, arg2, arg3, arg4)
 
 @client.command()
@@ -314,24 +314,24 @@ async def clean(ctx, arg1=None):
         id = '{0.author.id}'.format(ctx)
         if id == "656059360882982912" or id == "743429399956947067" or id == "822445708467503114" or id == "756828069649580074":
             if arg1 == None:
-                await ctx.send("¾ó¸¶³ª Ã»¼ÒÇÒÁö¸¦ ¾Ë·ÁÁÖ¼¼¿ä!")
+                await ctx.send("ì–¼ë§ˆë‚˜ ì²­ì†Œí• ì§€ë¥¼ ì•Œë ¤ì£¼ì„¸ìš”!")
             else:
                 if arg1.isdigit():
                     if arg1 != '0':
                         try:
                             limit = int(arg1) + 1
                             await ctx.message.channel.purge(limit=limit)
-                            await ctx.send(embed=discord.Embed(title="Ã»¼Ò ¿Ï·á", description=f'{ctx.author.mention}' + " ´Ô¿¡ ÀÇÇØ " + arg1 + "¸¸Å­ÀÇ ¸Ş¼¼Áö°¡ »èÁ¦µÇ¾ú½À´Ï´Ù!", color=0xFFFFFE))
+                            await ctx.send(embed=discord.Embed(title="ì²­ì†Œ ì™„ë£Œ", description=f'{ctx.author.mention}' + " ë‹˜ì— ì˜í•´ " + arg1 + "ë§Œí¼ì˜ ë©”ì„¸ì§€ê°€ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤!", color=0xFFFFFE))
                         except:
-                            await ctx.send("º¿¿¡ »èÁ¦ ±ÇÇÑÀÌ ¾ø½À´Ï´Ù!")
+                            await ctx.send("ë´‡ì— ì‚­ì œ ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤!")
                     else:
-                        await ctx.send("0°³ÀÇ ¸Ş¼¼Áö´Â »èÁ¦ÇÒ¼ö ¾ø¾î¿ä")
+                        await ctx.send("0ê°œì˜ ë©”ì„¸ì§€ëŠ” ì‚­ì œí• ìˆ˜ ì—†ì–´ìš”")
                 else:
-                    await ctx.send("Áö¿ï °³¼ö´Â ¼ıÀÚ¿©¾ß ÇØ¿ä(No ¼Ò¼öÁ¡, No ¸¶ÀÌ³Ê½º... µî)")
+                    await ctx.send("ì§€ìš¸ ê°œìˆ˜ëŠ” ìˆ«ìì—¬ì•¼ í•´ìš”(No ì†Œìˆ˜ì , No ë§ˆì´ë„ˆìŠ¤... ë“±)")
         else:
-            await ctx.send("±ÇÇÑÀÌ ¾ø½À´Ï´Ù!\n@·¹¸ó#1491 ¿¡°Ô dmÀ¸·Î ¹®ÀÇÇÏ¼¼¿ä!")
+            await ctx.send("ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤!\n@ë ˆëª¬#1491 ì—ê²Œ dmìœ¼ë¡œ ë¬¸ì˜í•˜ì„¸ìš”!")
     except Exception as error:
-        await ctx.send(":warning: À¸¾Ç! ¿¡·¯´Ù!")
+        await ctx.send(":warning: ìœ¼ì•…! ì—ëŸ¬ë‹¤!")
         await ctx.send(":warning: " + error)
 
 @client.command()
@@ -339,18 +339,18 @@ async def delete(ctx, arg1=None):
     await clean(ctx, arg1)
 
 @client.command()
-async def Ã»¼Ò(ctx, arg1=None):
+async def ì²­ì†Œ(ctx, arg1=None):
     await clean(ctx, arg1)
 
 @client.command()
-async def »èÁ¦(ctx, arg1=None):
+async def ì‚­ì œ(ctx, arg1=None):
     await clean(ctx, arg1)
 
 @client.command()
 async def search(ctx, searchtype=None, *, searchargs=None):
     try:
         if searchtype == None or searchargs == None:
-            await ctx.send("¹«¾ùÀ», ¾îµğ¿¡¼­ °Ë»öÇÒÁö ÀÔ·ÂÇØ ÁÖ¼¼¿ä")
+            await ctx.send("ë¬´ì—‡ì„, ì–´ë””ì—ì„œ ê²€ìƒ‰í• ì§€ ì…ë ¥í•´ ì£¼ì„¸ìš”")
         else:
             search = searchargs.split()
             searchmessage = ""
@@ -360,22 +360,22 @@ async def search(ctx, searchtype=None, *, searchargs=None):
             searchmessage = searchmessage[:-1]
             if searchtype == "naver":
                 await ctx.send("https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=" + searchmessage)
-            elif searchtype == "³×ÀÌ¹ö":
+            elif searchtype == "ë„¤ì´ë²„":
                 await ctx.send("https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=" + searchmessage)
             elif searchtype == "daum":
                 await ctx.send("https://search.daum.net/search?w=tot&DA=YZR&t__nil_searchbox=btn&sug=&sugo=&sq=&o=&q=" + searchmessage)
-            elif searchtype == "´ÙÀ½":
+            elif searchtype == "ë‹¤ìŒ":
                 await ctx.send("https://search.daum.net/search?w=tot&DA=YZR&t__nil_searchbox=btn&sug=&sugo=&sq=&o=&q=" + searchmessage)
             elif searchtype == "zum":
                 await ctx.send("https://search.zum.com/search.zum?method=uni&option=accu&rd=1&qm=f_typing.top&query=" + searchmessage)
             elif searchtype == "google":
                 await ctx.send("https://www.google.com/search?q=" + searchmessage)
-            elif searchtype == "±¸±Û":
+            elif searchtype == "êµ¬ê¸€":
                 await ctx.send("https://www.google.com/search?q=" + searchmessage)
             else:
-                await ctx.send("±×·±... »çÀÌÆ®´Â ¾ø´Âµ¥¿ä?")
+                await ctx.send("ê·¸ëŸ°... ì‚¬ì´íŠ¸ëŠ” ì—†ëŠ”ë°ìš”?")
     except Exception as error:
-        await ctx.send(":warning: À¸¾Ç! ¿¡·¯´Ù!")
+        await ctx.send(":warning: ìœ¼ì•…! ì—ëŸ¬ë‹¤!")
         await ctx.send(":warning:" + error)
     return None
 
@@ -405,11 +405,11 @@ async def profile(ctx, user: discord.Member = None):
             pf.add_field(name="Game playing", value="N/A", inline=False)
             pf.add_field(name="Custom Status", value="N/A", inline=False)
         elif len(user.activities) == 2:
-            pf.add_field(name="Game playing", value=f'{user.activities[1].name}'+" ÇÏ´ÂÁß", inline=False)
+            pf.add_field(name="Game playing", value=f'{user.activities[1].name}'+" í•˜ëŠ”ì¤‘", inline=False)
             pf.add_field(name="Custom Status", value=f'{user.activity}', inline=False)
         elif len(user.activities) == 1:
             if str(user.activities[0].type) == "ActivityType.playing":
-                pf.add_field(name="Game playing", value=f'{user.activities[0].name}'+" ÇÏ´ÂÁß", inline=False)
+                pf.add_field(name="Game playing", value=f'{user.activities[0].name}'+" í•˜ëŠ”ì¤‘", inline=False)
                 pf.add_field(name="Custom Status", value="N/A", inline=False)
             elif str(user.activities[0].type) == "ActivityType.custom":
                 pf.add_field(name="Game playing", value="N/A", inline=False)
@@ -425,14 +425,14 @@ async def profile(ctx, user: discord.Member = None):
         pf.add_field(name="Joined At", value=str(joi), inline=True)
 
         pf.add_field(name="Bot", value=str(user.bot), inline=False)
-        pf.set_footer(icon_url = f'{ctx.author.avatar_url}', text = f'{ctx.author}' + " ? " + str(now.month) + "¿ù " + str(now.day) + "ÀÏ " + str(now.hour) + "½Ã " + str(now.minute) + "ºĞ")
+        pf.set_footer(icon_url = f'{ctx.author.avatar_url}', text = f'{ctx.author}' + " ? " + str(now.month) + "ì›” " + str(now.day) + "ì¼ " + str(now.hour) + "ì‹œ " + str(now.minute) + "ë¶„")
         color = random.randint(0, 0xfffffe)
         pf.color = color
 
         await ctx.send(embed=pf)
         return None
     except Exception as error:
-        await ctx.send(":warning: À¸¾Ç! ¿¡·¯´Ù!")
+        await ctx.send(":warning: ìœ¼ì•…! ì—ëŸ¬ë‹¤!")
         await ctx.send(":warning:" + str(error))
         return None
 
@@ -441,7 +441,7 @@ async def pf(ctx, user: discord.Member = None):
     await profile(ctx, user)
 
 @client.command()
-async def ÇÁ·ÎÇÊ(ctx, user: discord.Member = None):
+async def í”„ë¡œí•„(ctx, user: discord.Member = None):
     await profile(ctx, user)
 
 @client.command()
@@ -473,11 +473,11 @@ async def serverinfo(ctx):
         ]
         info.add_field(name="Statuses", value="<:online:832592999312916500> " + str(statuses[0]) + "\n" + "<:idle:832602456474517542> " + str(statuses[1]) + "\n" + "<:dnd:832593085333635112> " + str(statuses[2]) + "\n" + "<:offline:832593131760648223> " + str(statuses[3]), inline=False)
 
-        info.set_footer(icon_url = f'{ctx.author.avatar_url}', text = f'{ctx.author}' + " ? " + str(now.month) + "¿ù " + str(now.day) + "ÀÏ " + str(now.hour) + "½Ã " + str(now.minute) + "ºĞ")
+        info.set_footer(icon_url = f'{ctx.author.avatar_url}', text = f'{ctx.author}' + " ? " + str(now.month) + "ì›” " + str(now.day) + "ì¼ " + str(now.hour) + "ì‹œ " + str(now.minute) + "ë¶„")
         info.color = random.randint(0, 0xfffffe)
         await ctx.send(embed=info)
     except Exception as error:
-        await ctx.send(":warning: À¸¾Ç! ¿¡·¯´Ù!")
+        await ctx.send(":warning: ìœ¼ì•…! ì—ëŸ¬ë‹¤!")
         await ctx.send(":warning:" + str(error))
 
 @client.command()
@@ -485,22 +485,22 @@ async def server(ctx):
     await serverinfo(ctx)
 
 @client.command()
-async def ¼­¹öÁ¤º¸(ctx):
+async def ì„œë²„ì •ë³´(ctx):
     await serverinfo(ctx)
 
 @client.command()
-async def ¼­¹ö(ctx):
+async def ì„œë²„(ctx):
     await serverinfo(ctx)
 
 @client.command()
 async def skin(ctx, user=None):
     try:
         if user is None:
-            await ctx.send("¿¡? ´©±¸¿ä?")
+            await ctx.send("ì—? ëˆ„êµ¬ìš”?")
         else:
             response = sg.get_uuid(user=user)
             if response is None:
-                await ctx.send("±×·± À¯Àú´Â ¾ø´Âµ¥....\n:thinking:")
+                await ctx.send("ê·¸ëŸ° ìœ ì €ëŠ” ì—†ëŠ”ë°....\n:thinking:")
                 return None
             color = random.randint(0, 0xfffffe)
             embed = discord.Embed(title=user + "`s Minecraft Skin", color=color)
@@ -508,11 +508,11 @@ async def skin(ctx, user=None):
             embed.set_image(url="https://visage.surgeplay.com/full/304/" + response)
             await ctx.send(embed=embed)
     except Exception as error:
-        await ctx.send(":warning: À¸¾Ç! ¿¡·¯´Ù!")
+        await ctx.send(":warning: ìœ¼ì•…! ì—ëŸ¬ë‹¤!")
         await ctx.send(":warning:" + error)
 
 @client.command()
-async def ½ºÅ²(ctx, user=None):
+async def ìŠ¤í‚¨(ctx, user=None):
     await skin(ctx, user)
 
 @client.command()
@@ -530,9 +530,9 @@ async def mute(ctx, arg1=None):
             elif ctx.guild.id == 759299677274505216:
                 await member.add_roles(ctx.guild.get_role(828218592424230952), atomic=True)
         except:
-            await ctx.send("¿ªÇÒÀ» Ãß°¡ÇÒ ±ÇÇÑÀÌ ¾ø½À´Ï´Ù!\n°ü¸®ÀÚ¿¡°Ô ¹®ÀÇÇØ º¿ÀÇ ±ÇÇÑ(Permission)À» ¼öÁ¤ÇØ ÁÖ¼¼¿ä!")
+            await ctx.send("ì—­í• ì„ ì¶”ê°€í•  ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤!\nê´€ë¦¬ìì—ê²Œ ë¬¸ì˜í•´ ë´‡ì˜ ê¶Œí•œ(Permission)ì„ ìˆ˜ì •í•´ ì£¼ì„¸ìš”!")
     except Exception as error:
-        await ctx.send(":warning: À¸¾Ç! ¿¡·¯´Ù!")
+        await ctx.send(":warning: ìœ¼ì•…! ì—ëŸ¬ë‹¤!")
         await ctx.send(":warning:" + str(error))
     return None
 
@@ -542,27 +542,27 @@ async def base(ctx, b=None, n=None):
         if b.isdigit():
             if n.isdigit():
                 if int(b) <= 1:
-                    await ctx.send("0, 1Áø¹ıÀº ¾ø¾î¿ä ;;")
+                    await ctx.send("0, 1ì§„ë²•ì€ ì—†ì–´ìš” ;;")
                     return None
-                embed=discord.Embed(title=str(n) + " -> " + str(b) + "Áø¹ı º¯È¯ °á°ú", description="```" + convert(int(n), int(b)) + "```")
-                embed.set_footer(icon_url = f'{ctx.author.avatar_url}', text = f'{ctx.author}' + " ? " + str(now.month) + "¿ù " + str(now.day) + "ÀÏ " + str(now.hour) + "½Ã " + str(now.minute) + "ºĞ")
+                embed=discord.Embed(title=str(n) + " -> " + str(b) + "ì§„ë²• ë³€í™˜ ê²°ê³¼", description="```" + convert(int(n), int(b)) + "```")
+                embed.set_footer(icon_url = f'{ctx.author.avatar_url}', text = f'{ctx.author}' + " ? " + str(now.month) + "ì›” " + str(now.day) + "ì¼ " + str(now.hour) + "ì‹œ " + str(now.minute) + "ë¶„")
                 embed.color = random.randint(0, 0xfffffe)
                 await ctx.send(embed=embed)
             else:
-                await ctx.send("º¯È¯ÇÒ ¼ö, º¯È¯ÇÒ Áø¹ıÀº ¸ğµÎ ¼ıÀÚ¿©¾ß ÇØ¿ä!")
+                await ctx.send("ë³€í™˜í•  ìˆ˜, ë³€í™˜í•  ì§„ë²•ì€ ëª¨ë‘ ìˆ«ìì—¬ì•¼ í•´ìš”!")
         else:
-            await ctx.send("º¯È¯ÇÒ ¼ö, º¯È¯ÇÒ Áø¹ıÀº ¸ğµÎ ¼ıÀÚ¿©¾ß ÇØ¿ä!")
+            await ctx.send("ë³€í™˜í•  ìˆ˜, ë³€í™˜í•  ì§„ë²•ì€ ëª¨ë‘ ìˆ«ìì—¬ì•¼ í•´ìš”!")
     except Exception as error:
-        await ctx.send(":warning: À¸¾Ç! ¿¡·¯´Ù!")
+        await ctx.send(":warning: ìœ¼ì•…! ì—ëŸ¬ë‹¤!")
         await ctx.send(":warning:" + str(error))
 
 @client.event
 async def on_command_error(ctx, error):
     if isinstance(error, commands.MemberNotFound):
-        await ctx.channel.send("±×·± À¯Àú´Â ¾ø¾î¿ä!")
+        await ctx.channel.send("ê·¸ëŸ° ìœ ì €ëŠ” ì—†ì–´ìš”!")
 
     if isinstance(error, commands.CommandNotFound):
-        await ctx.channel.send("±×·± ¸í·É¾î´Â ¾ø½À´Ï´Ù!")
-        await ctx.channel.send("**';;;µµ¿ò'** À» ÀÔ·ÂÇØ º¸¼¼¿ä!")
+        await ctx.channel.send("ê·¸ëŸ° ëª…ë ¹ì–´ëŠ” ì—†ìŠµë‹ˆë‹¤!")
+        await ctx.channel.send("**';;;ë„ì›€'** ì„ ì…ë ¥í•´ ë³´ì„¸ìš”!")
 
 client.run(os.environ['token'])
